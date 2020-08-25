@@ -17,3 +17,18 @@
   font-size: 40px;
   color: #0073e6;
 }
+
+.right-container .forgot-psd {
+  float: right;
+  font-size: 15px;
+}
+
+.right-container .txt-container {
+  font-size: 13px;
+  position: fixed;
+  bottom: 100px;
+}
+
+.right-container .login-btn {
+  width: 100px;
+}

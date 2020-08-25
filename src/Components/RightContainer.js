@@ -16,10 +16,15 @@ export default class RightContainer extends Component {
         </div>
         <Input type="email" placeholder="Email Address" />
         <Input type="password" placeholder="Password" />
-
-        <Button variant="success" className="btn-md">
+        <p className="forgot-psd">Forgot Password?</p>
+        <Button variant="success" className="login-btn mt-5">
           Login
         </Button>
+        <p className="text-muted txt-container">
+          Copyright Retail Scan Management Services Pvt Ltd 2020
+          <br />
+          <a href="#">Terms & Conditions</a>
+        </p>
       </div>
     );
   }

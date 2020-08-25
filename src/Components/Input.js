@@ -4,7 +4,7 @@ export default class Input extends Component {
   render() {
     let { type, placeholder } = this.props;
     return (
-      <Form.Group className="pb-3">
+      <Form.Group className="pb-4">
         <Form.Control type={type} placeholder={placeholder} />
       </Form.Group>
     );
