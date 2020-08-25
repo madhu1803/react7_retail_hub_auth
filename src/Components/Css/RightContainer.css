@@ -1,0 +1,19 @@
+.right-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding: 10% 10%;
+}
+
+.right-container .header {
+  padding-bottom: 80px;
+}
+
+.right-container .right-heading {
+  font-weight: 600;
+}
+
+.right-container .right-heading .right-icon {
+  font-size: 40px;
+  color: #0073e6;
+}

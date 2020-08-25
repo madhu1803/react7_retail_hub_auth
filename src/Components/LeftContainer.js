@@ -7,8 +7,6 @@ export default class LeftContainer extends Component {
         <img
           src="https://i.imgur.com/o3FvBnt.png"
           className="img-responsive left-img"
-          height="500"
-          width="500"
         />
         <h4 className="text-white left-txt">
           India's First Customized Instore Solutions Company
