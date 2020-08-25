@@ -21,12 +21,13 @@
 .right-container .forgot-psd {
   float: right;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .right-container .txt-container {
   font-size: 13px;
   position: fixed;
-  bottom: 100px;
+  bottom: 90px;
 }
 
 .right-container .login-btn {
