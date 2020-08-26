@@ -3,10 +3,12 @@ import "./Css/RightContainer.css";
 import { AiFillCodeSandboxCircle } from "react-icons/ai";
 import Input from "./Input";
 import { Button } from "react-bootstrap";
+import axios from "axios";
 export default class RightContainer extends Component {
   state = {
     email: "",
     password: "",
+    errors: {},
   };
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -18,7 +20,17 @@ export default class RightContainer extends Component {
     console.log(this.state.password);
     this.setState({ email: "", password: "" });
   };
+
   render() {
+    axios
+      .post("https://gprs-api.geopits.com/auth/login/", {
+        login_username: this.state.email,
+        password: this.state.password,
+      })
+      .then(function (response) {
+        // console.log(response);
+      });
+
     return (
       <div className="container right-container text-capitalize">
         <div className="header">
@@ -34,6 +46,7 @@ export default class RightContainer extends Component {
           value={this.state.email}
           name="email"
           change={(e) => this.handleChange(e)}
+          error={this.state.errors.email}
         />
         <Input
           type="password"
@@ -41,6 +54,7 @@ export default class RightContainer extends Component {
           value={this.state.password}
           name="password"
           change={(e) => this.handleChange(e)}
+          error={this.state.errors.password}
         />
         <p className="forgot-psd">Forgot Password?</p>
         <Button
