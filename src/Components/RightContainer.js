@@ -32,20 +32,20 @@ export default class RightContainer extends Component {
         }
       })
       .catch((error) => {
-        // if (error.response.status === 400) {
-        alert("error");
-        this.setState({
-          ...this.state,
-          email: "",
-          password: "",
-          errors: {
-            email: error.response.data.login_username,
-            password: error.response.data.detail,
-          },
-        });
-        // }
+        if (error.response.status === 400 || error.response.status === 403) {
+          alert("error");
+          this.setState({
+            ...this.state,
+            email: "",
+            password: "",
+            errors: {
+              email: error.response.data.login_username,
+              password: error.response.data.detail,
+            },
+          });
+        }
 
-        console.log(error.response.data.detail);
+        console.log(error.response);
         console.log(this.state.errors.password);
       });
   };
