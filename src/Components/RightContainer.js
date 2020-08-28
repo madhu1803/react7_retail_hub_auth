@@ -8,13 +8,10 @@ export default class RightContainer extends Component {
   state = {
     email: "",
     password: "",
-    errors: {
-      email: "",
-      password: "",
-    },
+    errors: {},
   };
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, errors: {} });
   };
 
   submitHandler = () => {
@@ -33,6 +30,7 @@ export default class RightContainer extends Component {
         }
       })
       .catch((error) => {
+        // if (error.response.status === 400) {
         alert("error");
         this.setState({
           ...this.state,
@@ -41,12 +39,13 @@ export default class RightContainer extends Component {
             password: error.response.data.detail,
           },
         });
+        // }
 
-        console.log(this.state.errors.email);
+        console.log(error.response.data.detail);
         console.log(this.state.errors.password);
       });
 
-    this.setState({ email: "", password: "" });
+    // this.setState({ email: "", password: "" });
   };
 
   render() {
