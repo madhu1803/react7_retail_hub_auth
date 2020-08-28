@@ -24,8 +24,10 @@ export default class RightContainer extends Component {
         platform: "retail_hub",
       })
       .then((response) => {
-        if (response.status === 200) alert("success");
-        else {
+        if (response.status === 200) {
+          alert("success");
+          this.setState({ email: "", password: "" });
+        } else {
           alert("unhandled");
         }
       })
@@ -34,6 +36,8 @@ export default class RightContainer extends Component {
         alert("error");
         this.setState({
           ...this.state,
+          email: "",
+          password: "",
           errors: {
             email: error.response.data.login_username,
             password: error.response.data.detail,
@@ -44,8 +48,6 @@ export default class RightContainer extends Component {
         console.log(error.response.data.detail);
         console.log(this.state.errors.password);
       });
-
-    // this.setState({ email: "", password: "" });
   };
 
   render() {
