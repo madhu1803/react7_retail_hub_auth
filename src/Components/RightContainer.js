@@ -8,7 +8,10 @@ export default class RightContainer extends Component {
   state = {
     email: "",
     password: "",
-    errors: {},
+    errors: {
+      email: "",
+      password: "",
+    },
   };
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -16,21 +19,37 @@ export default class RightContainer extends Component {
 
   submitHandler = () => {
     alert("Submitted");
-    console.log(this.state.email);
-    console.log(this.state.password);
-    this.setState({ email: "", password: "" });
-  };
-
-  render() {
     axios
       .post("https://gprs-api.geopits.com/auth/login/", {
         login_username: this.state.email,
         password: this.state.password,
+        method_of_login: "email_password",
+        platform: "retail_hub",
       })
-      .then(function (response) {
-        // console.log(response);
+      .then((response) => {
+        if (response.status === 200) alert("success");
+        else {
+          alert("unhandled");
+        }
+      })
+      .catch((error) => {
+        alert("error");
+        this.setState({
+          ...this.state,
+          errors: {
+            email: error.response.data.login_username,
+            password: error.response.data.detail,
+          },
+        });
+
+        console.log(this.state.errors.email);
+        console.log(this.state.errors.password);
       });
 
+    this.setState({ email: "", password: "" });
+  };
+
+  render() {
     return (
       <div className="container right-container text-capitalize">
         <div className="header">
